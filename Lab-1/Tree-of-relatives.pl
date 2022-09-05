@@ -82,15 +82,7 @@ mother(A, B)            :- parent(A, B), female(A).
 grandfather(A, C)       :- father(A, B), father(B, C); father(A, B), mother(B, C).
 grandmother(A, C)       :- mother(A, B), father(B, C); mother(A, B), mother(B, C).
 
-greatgrandfather(A, C)  :- grandfather(A, B), father(B, C); grandfather(A, B), mother(B, C).
-greatgrandmother(A, C)  :- grandmother(A, B), father(B, C); grandmother(A, B), mother(B, C).
-
 sibling(A, B)           :- parent(C, A), parent(C, B), A \= B.
 
 brother(A, B)           :- sibling(A, B), male(A).
 sister(A, B)            :- sibling(A, B), female(A).
-
-uncle(A, C)             :- brother(A, B), parent(B, C).
-aunt(A, C)              :- sister(A, B), parent(B, C).
-
-cousin(A, B)            :- parent(C, A), uncle(C, B); parent(C, A), aunt(C, B).
