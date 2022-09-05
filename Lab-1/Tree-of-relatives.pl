@@ -11,7 +11,6 @@ spouse("Petr I Romanov", "Ekaterina I Alekseevna").
 spouse("Karl Fridrih Golfshtein", "Anna Petrovna").
 spouse("Ekaterina II Alekseevna", "Petr III Fedorovich").
 
-
 parent("Michail Romanov", "Aleksey Romanov").
 parent("Evdokia Streshneva", "Aleksey Romanov").
 parent("Aleksey Romanov", "Feodor Romanov").
@@ -41,7 +40,6 @@ parent("Ekaterina I Alekseevna", "Elizaveta Petrovna").
 parent("Karl Fridrih Golfshtein", "Petr III Fedorovich").
 parent("Anna Petrovna", "Petr III Fedorovich").
 
-
 male("Michail Romanov").
 male("Aleksey Romanov").
 male("Feodor Romanov").
@@ -54,7 +52,6 @@ male("Aleksey Petrovich").
 male("Petr II Alekseevich").
 male("Karl Fridrih Golfshtein").
 male("Petr III Fedorovich").
-
 
 female("Evdokia Streshneva").
 female("Natalya Naryshkina").
@@ -72,7 +69,6 @@ female("Anna Petrovna").
 female("Elizaveta Petrovna").
 female("Ekaterina II Alekseevna").
 
-
 son(A, B)               :- parent(B, A), male(A).
 daughter(A, B)          :- parent(B, A), female(A).
 
@@ -82,7 +78,9 @@ mother(A, B)            :- parent(A, B), female(A).
 grandfather(A, C)       :- father(A, B), father(B, C); father(A, B), mother(B, C).
 grandmother(A, C)       :- mother(A, B), father(B, C); mother(A, B), mother(B, C).
 
-sibling(A, B)           :- parent(C, A), parent(C, B), A \= B.
+brother_or_sister(A, B) :- parent(C, A), parent(C, B), A \= B.
 
-brother(A, B)           :- sibling(A, B), male(A).
-sister(A, B)            :- sibling(A, B), female(A).
+brother(A, B)           :- brother_or_sister(A, B), male(A).
+sister(A, B)            :- brother_or_sister(A, B), female(A).
+
+uncle(A, B)				:- parent(C, B), brother(A, C).
