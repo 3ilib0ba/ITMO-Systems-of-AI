@@ -1,0 +1,3 @@
+C:/InnerDesktop/ITMO-All/Systems-of-AI/Labs/Lab-2-alg/cmake-build-debug/CMakeFiles/Lab_2_alg.dir
+C:/InnerDesktop/ITMO-All/Systems-of-AI/Labs/Lab-2-alg/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/InnerDesktop/ITMO-All/Systems-of-AI/Labs/Lab-2-alg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
